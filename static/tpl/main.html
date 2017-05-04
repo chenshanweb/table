@@ -1,0 +1,38 @@
+ <h3>学生管理系统</h3>
+    <table class="table-bordered table table-hover" >
+        <tbody>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+
+        <tr ng-show="data.length==0">
+            <td colspan="4">没有学生的相关信息</td>
+        </tr>
+
+        <tr ng-show="data.length>0" ng-repeat="item in data ">
+            <td class="name" >
+                <input type="text" ng-model="item.name" ng-blur="blur(item.id,item.name,'name')">
+            </td>
+            <td class="age" >
+                <input type="text" ng-model="item.age" ng-blur="blur(item.id,item.age,'age')">
+            </td>
+            <td class="sex" ng-blur="blur(item.id,item.sex,'sex')">
+                <input type="text"  ng-blur="blur(item.id,item.sex,'sex')" ng-model="item.sex">
+            </td>
+            <td>
+                <a type="button" class="btn btn-info"  href="#!/edit/{{item.id}}">编辑</a>
+                <button type="button" class="btn btn-info"  ng-click="del(item.id)">删除</button>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="4" class="add">
+                <a href="#!/add" > <button type="button" class="btn btn-info">添加</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>

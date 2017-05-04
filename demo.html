@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    function one(){
+        var promise=new Promise(function (e) {
+            setTimeout(function(){
+                console.log(1);
+                e("第一个执行完");
+            },3000)
+
+        })
+        return promise;
+    }
+    function two(){
+        var promise=new Promise(function (a) {
+            setTimeout(function(){
+                console.log(2);
+                a("第2个执行完");
+            },3000)
+
+        })
+        return promise;
+    }
+    function thr(){
+        var promise=new Promise(function (e) {
+            setTimeout(function(){
+                console.log(3);
+                e("第三个执行完");
+            },3000)
+
+        })
+        return promise;
+    }
+
+    one().then(function (e) {
+        console.log(e);
+        return two();
+    }).then(function (e) {
+        console.log(e);
+        return thr();
+    }).then(function (e) {
+         console.log(e);
+    })
+    console.dir(Promise)
+
+
+</script>
+</html>

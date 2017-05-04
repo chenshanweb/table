@@ -1,0 +1,1 @@
+angular.module("myapp",["route","ngRoute","controll","services","ngAnimate"])//启动应用
